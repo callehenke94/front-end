@@ -1,0 +1,35 @@
+/* Optional: Makes the sample page fill the window. */
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Background*/
+
+body {
+    background-color: aquamarine!important;
+}
+
+/* Pin Icon*/
+.pin-icon-container {
+    float: right;
+    margin: 10px;
+    border: 1px solid black;
+    border-radius: 2.5%;
+}
+
+/*Map ID*/
+#map {
+  height: 50%;
+  min-height: 540px;
+  width: 50%;
+  left: 25%;
+  right: 25%;
+  border-radius: 2.5%;
+}
+
+.map-holder {
+    margin-top: 7vh;
+}
