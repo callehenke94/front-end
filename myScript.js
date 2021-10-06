@@ -7,12 +7,37 @@ function initMap() {
     zoom: 4,
     center: myLatLng,
   });
+  map.setOptions({draggable: false})
+
+  let infoWindow = new google.maps.InfoWindow({
+    content: "CLick the map to get Lat/Lng!",
+    position: myLatLng
+  })
+
+  infoWindow.open(map)
+
+  map.addListener('click', (mapsMouseEvent) => {
+    infoWindow.close()
+    console.log(mapsMouseEvent.latLng)
+    infoWindow = new google.maps.InfoWindow({
+      position: mapsMouseEvent.latLng,
+    })
+    infoWindow.setContent(
+      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
+    )
+    infoWindow.open(map)
+  })
+
+  map.addListener
   new google.maps.Marker({
     position: myLatLng,
     map,
-    title: "Hello World!",
+    title: "Some Text",
+    label: {text: 'hello world', color: 'black'}
   });
 }
+
+//document.getElementById("hi").style.background = 'white'
 
 //Cursor//
 const src = "/images/pin-icon.png";
