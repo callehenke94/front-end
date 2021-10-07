@@ -1,12 +1,13 @@
 // Map//
 let map;
-
+const myLatLng = { lat: -25.363, lng: 131.044 };
+const map = new google.maps.Map(document.getElementById("map"), {
+  zoom: 4,
+  center: myLatLng,
+});
 function initMap() {
-  const myLatLng = { lat: -25.363, lng: 131.044 };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
-    center: myLatLng,
-  });
+  
+  
   map.setOptions({draggable: false})
 
   let infoWindow = new google.maps.InfoWindow({
@@ -26,6 +27,14 @@ function initMap() {
       JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
     )
     infoWindow.open(map)
+    new google.maps.Marker({
+      position:mapsMouseEvent.latLng,
+      map,
+      title: "Some Text",
+      label: {text: 'hello world', color: 'black'}
+    });
+    console.log('pushed code')
+    
   })
 
   map.addListener
